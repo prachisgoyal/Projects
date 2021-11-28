@@ -22,12 +22,13 @@ const Home = ({ navigation }) => {
         <View style={styles.column}>
           {values.map((value) => (
             <TouchableOpacity
-              data-testid={value}
               key={value}
               style={styles.touchable}
               onPress={() => navigation.navigate(value)}
             >
-              <Text style={styles.label}>{value}</Text>
+              <div data-testid={value}>
+                <Text style={styles.label}>{value}</Text>
+              </div>
             </TouchableOpacity>
           ))}
         </View>
