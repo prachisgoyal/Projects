@@ -4,7 +4,7 @@ import { View, Text } from "react-native";
 const Appointment = () => {
   return (
     <View>
-      <Text>Appointment</Text>
+      <Text>Appointments</Text>
     </View>
   );
 };

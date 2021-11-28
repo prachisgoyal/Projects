@@ -1,13 +1,18 @@
 import React from "react";
-import {
-  render,
-  screen,
-  fireEvent,
-  waitFor,
-  cleanup,
-} from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Home from "../Home";
 import More from "../More";
+
+//Test Header Rendering
+test("page contains the header", async () => {
+  const component = <Home />;
+
+  const { findByText } = render(component);
+
+  const header = findByText("Welcome");
+
+  expect(header).toBeTruthy();
+});
 
 //Test DOM Rendering
 test("should render Profile touchable in Home Screen", () => {
@@ -50,11 +55,3 @@ test("should render Reports touchable in Home Screen", () => {
   const homeElement = screen.getByTestId("Reports");
   expect(homeElement).toBeInTheDocument();
 });
-
-//Test onClick Event
-// test("Test onClick Event in Home Screen", () => {
-//   render(<Home />);
-//   const touchable = screen.getByText("Profile");
-//   fireEvent.click(touchable);
-//   expect(screen.getByText("Profile")).not.toBeInTheDocument();
-// });
